@@ -16,30 +16,41 @@ public class ApprenantServiceImp implements ApprenantService{
     ApprenantRepository apprenantRepository;
 
     @Override
-    public void ajouterApprenant(List<Apprenant> apprenant) {
-       // List<Apprenant> list = new ArrayList<Apprenant>();
-        for(int i=0; i< apprenant.size(); i++){
-            //System.out.println(apprenant.get(i));
-            Apprenant part = new Apprenant();
-            //apprenantRepository.get
-            part.setNom_complet(apprenant.get(i).getNom_complet());
-            part.setEmail(apprenant.get(i).getEmail());
-            part.setEmail(apprenant.get(i).getEmail());
+    public void ajouterApprenant(Apprenant apprenant) {
+        if (apprenant.getEmail() != null && apprenant.getNumero() != null){
+            Apprenant aapprenant = apprenantRepository.getApprenantByListeAndEmailAndNumero(apprenant.getListe(), apprenant.getEmail(), apprenant.getNumero());
+            if (aapprenant == null) {
+                apprenantRepository.save(apprenant);
+            }else{
+                System.out.println("apprenant exist déjà dans la liste");
+            }
+        }else {
+            System.out.println("error !!!!!!!!");
+        }
+    }
 
-            if (part.getEmail() != null && part.getNumero() != null){
+    @Override
+    public List<Apprenant> ajouterApprenants(List<Apprenant> apprenants) {
+        List<Apprenant> list = new ArrayList<>();
+        for(int i=0; i< apprenants.size(); i++){
+            Apprenant part = new Apprenant();
+            part.setNom_complet(apprenants.get(i).getNom_complet());
+            part.setEmail(apprenants.get(i).getEmail());
+            part.setEmail(apprenants.get(i).getEmail());
+
+            if (part.getEmail() != null || part.getNumero() != null){
                 Apprenant aapprenant = apprenantRepository.getApprenantByListeAndEmailAndNumero(part.getListe(), part.getEmail(), part.getNumero());
                 if (aapprenant == null) {
-                    apprenantRepository.saveAndFlush(part);
+                    Apprenant p = apprenantRepository.saveAndFlush(part);
+                    list.add(p);
                 }else{
                     System.out.println("apprenant exist déjà dans la liste");
                 }
             }else {
                 System.out.println("error !!!!!!!!");
             }
-
-            //Apprenant p = apprenantRepository.saveAndFlush(part);
-            //list.add(p);
         }
+        return list;
 
     }
 
@@ -49,7 +60,7 @@ public class ApprenantServiceImp implements ApprenantService{
     }
 
     @Override
-    public List<Apprenant> listeApprenantdistinct(Liste liste) {
-        return apprenantRepository.findApprenantByListe(liste);
+    public List<Apprenant> listeApprenantdistinct(Long id) {
+        return apprenantRepository.getApprenantByList(id);
     }
 }

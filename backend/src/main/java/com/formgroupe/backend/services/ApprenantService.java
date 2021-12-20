@@ -10,10 +10,12 @@ import java.util.List;
 @Service
 public interface ApprenantService {
 
-    public void ajouterApprenant(List<Apprenant> apprenant);
+    public void ajouterApprenant(Apprenant apprenant);
+
+    public List<Apprenant> ajouterApprenants(List<Apprenant> apprenants);
 
     public List<Apprenant> listeApprenant();
 
-    public List<Apprenant> listeApprenantdistinct(Liste liste);
+    public List<Apprenant> listeApprenantdistinct(Long id);
 
 }

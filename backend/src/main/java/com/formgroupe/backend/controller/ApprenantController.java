@@ -15,17 +15,25 @@ public class ApprenantController {
 
     @Autowired
     ApprenantService apprenantService;
+
     @PostMapping("/ajoutApprenant")
-    public void ajouterApprenant(@RequestBody List<Apprenant> apprenant){
+    public void ajouterApprenant(@RequestBody Apprenant apprenant){
         apprenantService.ajouterApprenant(apprenant);
     }
+
+    @PostMapping("/ajoutApprenants")
+    public List<Apprenant> ajouterApprenants(@RequestBody List<Apprenant> apprenants){
+       return apprenantService.ajouterApprenants(apprenants);
+    }
+
     @GetMapping("/listeApprenant")
     public List<Apprenant> listeApprenant(){
         return apprenantService.listeApprenant();
     }
-    @GetMapping("/listeApprenantdistinct/{liste}")
-    public List<Apprenant> listeApprenant(@PathVariable Liste liste){
-        return apprenantService.listeApprenantdistinct(liste);
+
+    @GetMapping("/listeApprenantdistinct/{id}")
+    public List<Apprenant> listeApprenant(@PathVariable Long id){
+        return apprenantService.listeApprenantdistinct(id);
     }
 
 
