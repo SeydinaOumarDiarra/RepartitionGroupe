@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FormateurRepository extends JpaRepository<Formateur, Long> {
+
+    Formateur getFormateurByLoginAndPassword(String login, String passd);
+
 }
