@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar class="arrierePlan">
+    <ion-row>
+        <ion-title>
+          <img class="img-taille" src="../../assets/images/logo.png" alt="logo">
+        </ion-title>
+      <ion-col  size="2">
+        <ion-icon  (click)="logout()" name="share-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="arrierePlan"  [fullscreen]="true">
+  <ion-row>
+    <ion-col size="4"></ion-col>
+    <ion-col  size="8">
+      <ion-col><br>
+        <ion-button [routerLink]="['/add-liste']"  color="primary">Créer une liste</ion-button>
+      </ion-col>
+    </ion-col>
+  </ion-row>
+<div class="row position">
+    <h6 style="text-align: center;"><b>Listes d'apprenants</b></h6>
+
+    <div class="flex">
+      <ion-row>
+        <ion-col size="large" size="6">
+          <ion-card class="ion-text-center">
+            <br>
+              <ion-grid>
+                <div>
+                  <a (click)="liste()">
+                  <ion-img src=""></ion-img>
+                  <ion-card-subtitle style="color: black;">Liste 1</ion-card-subtitle>
+                </a>
+                </div>
+            </ion-grid>
+          </ion-card>
+        </ion-col>
+        <ion-col size="large" size="6">
+          <ion-card class="ion-text-center">
+            <br>
+            <a (click)="liste()">
+              <ion-grid>
+                <div>
+                  
+                  <ion-img src=""></ion-img>
+                  <ion-card-subtitle style="color: black;">Liste 1</ion-card-subtitle>
+               
+                </div>
+            </ion-grid>
+          </a>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+       
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar class="arrierePlan">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img class="img-taille" src="../../assets/images/logo.png" alt="logo">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="arrierePlan" [fullscreen]="true">
+  <div class="flex">
+    <ion-row>
+      <ion-col size="large" size="12">
+        <ion-card class="ion-text-center">
+          <br>
+            <ion-grid>
+              <form #groupeForm="ngForm"  (ngSubmit)="addGroupe(groupeForm)" novalidate>
+                <ion-list  style="padding: 0px 18px">
+                  <ion-item>
+                    <ion-label position="floating" color="black"><b>Nom collection</b></ion-label>
+                    <ion-input [(ngModel)]="groupe.collection" name="collection" type="text" #collection="ngModel" required>
+                    </ion-input>
+                  </ion-item>
+
+                  <ion-text color="danger" *ngIf="collection.invalid && collection.touched">
+                        Collection obligatoire
+                  </ion-text>
+
+                  <ion-item><br>
+                    <ion-label position="floating" color="black"><b>Nombre de groupe</b></ion-label>
+                    <ion-input [(ngModel)]="groupe.nbre" name="nbre" type="number" #nbre="ngModel" required>
+                    </ion-input>
+                  </ion-item>
+
+                  <ion-text color="danger" *ngIf="nbre.invalid && nbre.touched">
+                      Nombre de groupe obligatoire
+                  </ion-text>
+
+                  <ion-item><br>
+                    <ion-label position="floating" color="black"><b>Membre par groupe</b></ion-label>
+                    <ion-input [(ngModel)]="groupe.membre" name="membre" type="number" #membre="ngModel" required>
+                    </ion-input>
+                  </ion-item>
+
+                  <ion-text color="danger" *ngIf="nbre.invalid && nbre.touched">
+                      Nombre de membre obligatoire
+                  </ion-text>
+                </ion-list>
+
+                <ion-row>
+                  <ion-col><br>
+                    <ion-button color="primary" [disabled]="groupeForm.invalid" style="padding: 0px 18px" type="submit" expand="block">Créer</ion-button>
+                  </ion-col>
+                </ion-row>
+              
+              </form>
+            </ion-grid>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

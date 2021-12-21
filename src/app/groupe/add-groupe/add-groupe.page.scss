@@ -1,0 +1,20 @@
+.arrierePlan{
+    --background: linear-gradient(orange, white);
+}
+.position{
+    padding-top: 30%;
+}
+
+.btn-black{
+    --background: black;
+}
+
+ion-button:hover{
+    --background: none;
+}
+
+.img-taille{
+    align-items: center;
+    width: 30%;
+    height: 30%;
+}

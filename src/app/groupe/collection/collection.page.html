@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar class="arrierePlan">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img class="img-taille" src="../../assets/images/logo.png" alt="logo">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="arrierePlan">
+
+  <div class="row position">
+    <h6 style="text-align: center;"><b>Les collections</b></h6>
+
+    <div class="flex">
+      <ion-row>
+        <ion-col size="large" size="6">
+          <ion-card class="ion-text-center">
+            <br>
+              <ion-grid>
+                <div>
+                  <a (click)="detailCollection()">
+                  <ion-img src=""></ion-img>
+                  <ion-card-subtitle style="color: black;">Collection 1</ion-card-subtitle>
+                </a>
+                </div>
+            </ion-grid>
+          </ion-card>
+        </ion-col>
+        <ion-col size="large" size="6">
+          <ion-card class="ion-text-center">
+            <br>
+            <a (click)="detailCollection()">
+              <ion-grid>
+                <div>
+                  
+                  <ion-img src=""></ion-img>
+                  <ion-card-subtitle style="color: black;">Coolection 2</ion-card-subtitle>
+               
+                </div>
+            </ion-grid>
+          </a>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+       
+    </div>
+  </div>
+</ion-content>

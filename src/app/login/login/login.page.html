@@ -1,0 +1,43 @@
+<ion-content class="arrierePlan"  [fullscreen]="true">
+  <ion-row>
+    <ion-col  size="2"><br><br>
+      <span >
+        <ion-icon (click)="home()" name="arrow-back-circle-outline"></ion-icon>
+      </span>
+    </ion-col>
+    <ion-col  size="10"></ion-col>
+  </ion-row>
+  <div class="login-logo">
+    <img src="../../../assets/images/login.png" alt="Login logo">
+  </div>
+  <form #loginForm="ngForm"  (ngSubmit)="onLogin(loginForm)" novalidate>
+    <ion-list  style="padding: 0px 18px">
+      <ion-item>
+        <ion-label position="floating" color="black"><b>Login</b></ion-label>
+        <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger" *ngIf="username.invalid && username.touched">
+            Login obligatoire
+      </ion-text>
+
+      <ion-item><br>
+        <ion-label position="floating" color="black"><b>Mot de passe</b></ion-label>
+        <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger" *ngIf="password.invalid && password.touched">
+          Mot de passe obligatoire
+      </ion-text>
+    </ion-list>
+
+    <ion-row>
+      <ion-col><br>
+        <ion-button color="primary" [disabled]="loginForm.invalid" style="padding: 0px 18px" type="submit" expand="block">CONNEXION</ion-button>
+      </ion-col>
+    </ion-row>
+   
+  </form>
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar class="arrierePlan">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img class="img-taille" src="../../assets/images/logo.png" alt="logo">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="arrierePlan"  [fullscreen]="true">
+  <ion-row>
+    <ion-col  size="12">
+      <ion-col>
+        <ion-button [routerLink]="['/collection']" class="btn-black">Collections</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button [routerLink]="['/add-groupe']" color="primary">New partition</ion-button>
+      </ion-col>
+    </ion-col>
+  </ion-row>
+<div class="row position">
+    <div class="flex">
+      <ion-row>
+        <ion-col size="large" size="12">
+          <ion-card>
+            <ion-list>
+              <ion-item>
+                <ion-label>NOM</ion-label>
+                <ion-label>EMAIL</ion-label>
+                <ion-label>Tél</ion-label>
+              </ion-item>
+            </ion-list>
+              <ion-list >
+                <ion-item lines="none">
+                  <ion-label>Nooo</ion-label>
+                  <ion-label>pppp</ion-label>
+                  <ion-label>78999</ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-card>
+        </ion-col>
+      </ion-row>
+       
+    </div>
+  </div>
+</ion-content>
+
