@@ -37,7 +37,8 @@ public class ApprenantServiceImp implements ApprenantService{
             Apprenant part = new Apprenant();
             part.setNom_complet(apprenants.get(i).getNom_complet());
             part.setEmail(apprenants.get(i).getEmail());
-            part.setEmail(apprenants.get(i).getEmail());
+            part.setNumero(apprenants.get(i).getNumero());
+            part.setListe(apprenants.get(i).getListe());
 
             if (part.getEmail() != null || part.getNumero() != null){
                 Apprenant aapprenant = apprenantRepository.getApprenantByListeAndEmailAndNumero(part.getListe(), part.getEmail(), part.getNumero());

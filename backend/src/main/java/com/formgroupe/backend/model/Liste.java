@@ -20,7 +20,7 @@ public class Liste {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom_liste;
-    private LocalDate date_liste;
+    private LocalDate date_liste = LocalDate.now();
     @ManyToOne
     @JoinColumn(name = "formateur_id")
     private Formateur formateur;

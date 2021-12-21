@@ -18,7 +18,7 @@ public class Groupe_apprenant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDate date_creation;
+    private LocalDate date_creation = LocalDate.now();
     @ManyToOne
     @JoinColumn(name = "apprenant_id")
     private Apprenant apprenant;

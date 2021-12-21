@@ -22,5 +22,5 @@ public class Tache {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
-    private LocalDate date_ajout;
+    private LocalDate date_ajout = LocalDate.now();
 }

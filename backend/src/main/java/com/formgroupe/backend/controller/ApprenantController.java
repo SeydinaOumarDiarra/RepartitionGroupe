@@ -31,6 +31,11 @@ public class ApprenantController {
         return apprenantService.listeApprenant();
     }
 
+    @PutMapping("/miseAjourApprennan/{id}")
+    public void ajourApprenant(@PathVariable Long id, @RequestBody Apprenant apprenant){
+        apprenantService.ajourApprenant(id, apprenant);
+    }
+
     @GetMapping("/listeApprenantdistinct/{id}")
     public List<Apprenant> listeApprenant(@PathVariable Long id){
         return apprenantService.listeApprenantdistinct(id);
