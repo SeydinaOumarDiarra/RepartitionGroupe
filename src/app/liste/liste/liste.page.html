@@ -27,16 +27,16 @@
           <ion-card>
             <ion-list>
               <ion-item>
-                <ion-label>NOM</ion-label>
-                <ion-label>EMAIL</ion-label>
+                <ion-label>Nom</ion-label>
+                <ion-label>Email</ion-label>
                 <ion-label>Tél</ion-label>
               </ion-item>
             </ion-list>
-              <ion-list >
+              <ion-list *ngFor="let liste of liste">
                 <ion-item lines="none">
-                  <ion-label>Nooo</ion-label>
-                  <ion-label>pppp</ion-label>
-                  <ion-label>78999</ion-label>
+                  <ion-label>{{liste.nom_complet}}</ion-label>
+                  <ion-label>{{liste.email}}</ion-label>
+                  <ion-label>{{liste.numero}}</ion-label>
                 </ion-item>
               </ion-list>
             </ion-card>

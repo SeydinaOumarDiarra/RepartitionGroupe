@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  URL: 'http://localhost:8088/odcmanager/api/v1'
+  URL: 'http://localhost:8082/api/repartition'
 };
 
 /*

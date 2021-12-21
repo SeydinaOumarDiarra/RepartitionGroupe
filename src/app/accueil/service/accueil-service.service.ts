@@ -10,4 +10,9 @@ export class AccueilServiceService {
   constructor(
     private http: HttpClient,
   ) { }
+
+  // Liste par formateur
+  listeByFormateur(data: any){
+    return this.http.get(this.url +`/listeFormateur/${data}`);
+  }
 }

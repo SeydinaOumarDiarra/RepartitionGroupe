@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: () => import('./liste/add-liste/add-liste.module').then( m => m.AddListePageModule)
   },
   {
-    path: 'liste',
+    path: 'liste/:id',
     loadChildren: () => import('./liste/liste/liste.module').then( m => m.ListePageModule)
   },
   {
@@ -38,6 +38,10 @@ const routes: Routes = [
   {
     path: 'detailcollection',
     loadChildren: () => import('./groupe/detailcollection/detailcollection.module').then( m => m.DetailcollectionPageModule)
+  },
+  {
+    path: 'inscription',
+    loadChildren: () => import('./inscription/inscription/inscription.module').then( m => m.InscriptionPageModule)
   },
   
 ];

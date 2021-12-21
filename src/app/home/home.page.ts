@@ -13,7 +13,11 @@ export class HomePage {
   ) {}
 
   login(){
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
+  }
+
+  inscription(){
+    this.router.navigate(['inscription']);
   }
 
 }

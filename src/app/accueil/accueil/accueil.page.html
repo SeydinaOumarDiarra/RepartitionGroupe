@@ -20,36 +20,21 @@
     </ion-col>
   </ion-row>
 <div class="row position">
-    <h6 style="text-align: center;"><b>Listes d'apprenants</b></h6>
+    <h6 style="text-align: center;"><b>Mes Listes</b></h6>
 
     <div class="flex">
-      <ion-row>
-        <ion-col size="large" size="6">
+      <ion-row if="listeApp.length !== 0">
+        <ion-col size="large" size="6" *ngFor="let liste of listeApp">
           <ion-card class="ion-text-center">
             <br>
               <ion-grid>
                 <div>
-                  <a (click)="liste()">
-                  <ion-img src=""></ion-img>
-                  <ion-card-subtitle style="color: black;">Liste 1</ion-card-subtitle>
+                  <a (click)="detailListe(liste.id)">
+                  <ion-img src="../../../assets/images/groupe.png"></ion-img>
+                  <p style="color: black;">{{liste.nom_liste}}</p>
                 </a>
                 </div>
             </ion-grid>
-          </ion-card>
-        </ion-col>
-        <ion-col size="large" size="6">
-          <ion-card class="ion-text-center">
-            <br>
-            <a (click)="liste()">
-              <ion-grid>
-                <div>
-                  
-                  <ion-img src=""></ion-img>
-                  <ion-card-subtitle style="color: black;">Liste 1</ion-card-subtitle>
-               
-                </div>
-            </ion-grid>
-          </a>
           </ion-card>
         </ion-col>
       </ion-row>

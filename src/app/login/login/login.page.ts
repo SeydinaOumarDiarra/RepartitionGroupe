@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
+import { LoginServiceService } from '../service/login-service.service';
 
 @Component({
   selector: 'app-login',
@@ -13,11 +14,13 @@ export class LoginPage implements OnInit {
   error = '';
   constructor(
     public router: Router,
+    private service: LoginServiceService,
     private loading: LoadingController,
-   // private http: HttpClient,
     public alertController: AlertController,
   ) { }
 
+  ngOnInit() {
+  }
 
   async presentAlert(){
     const alert = await this.alertController.create({
@@ -32,15 +35,28 @@ export class LoginPage implements OnInit {
   home(){
     this.router.navigate(['home']);
   }
-  ngOnInit() {
-  }
+  
 
 
   async onLogin(form: NgForm) {
-    //this.submitted = true;
-    console.log(form);
-    
-    this.router.navigate(['accueil']);
+    const load = await this.loading.create({
+      message: 'Patientez...',
+      backdropDismiss: false,
+      mode: 'ios'
+    });
+    await load.present();
+    this.service.connexion(form.value["username"], form.value["password"])      
+    .subscribe((response: any) => {
+     // console.log(response);
+            load.dismiss();
+            if(response){
+              localStorage.setItem('userData', JSON.stringify(response));
+              this.router.navigate(['/accueil']);
+            }else{
+              this.presentAlert();
+            }
+        }
+    );
   }
  
 

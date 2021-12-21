@@ -1,0 +1,70 @@
+<ion-content class="arrierePlan"  [fullscreen]="true">
+  <ion-row>
+    <ion-col  size="2"><br>
+      <span >
+        <ion-icon (click)="home()" name="arrow-back-circle-outline"></ion-icon>
+      </span>
+    </ion-col>
+    <ion-col  size="10"></ion-col>
+  </ion-row>
+  <div class="login-logo">
+    <img src="../../../assets/images/login.png" alt="Login logo">
+  </div>
+  <form #signForm="ngForm"  (ngSubmit)="onSign(signForm)" novalidate>
+    <ion-list  style="padding: 0px 18px">
+      <ion-item>
+        <ion-label position="floating" color="black"><b>Nom</b></ion-label>
+        <ion-input [(ngModel)]="sign.nom" name="nom" type="text" #nom="ngModel" required>
+        </ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="nom.invalid && nom.touched">
+            Nom obligatoire
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating" color="black"><b>Prénom</b></ion-label>
+        <ion-input [(ngModel)]="sign.prenom" name="prenom" type="text" #prenom="ngModel" required>
+        </ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="prenom.invalid && prenom.touched">
+            Prénom obligatoire
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating" color="black"><b>Nom d'utilisateur</b></ion-label>
+        <ion-input [(ngModel)]="sign.login" name="login" type="text" #login="ngModel" required>
+        </ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="login.invalid && login.touched">
+            Nom d'utilisateur obligatoire
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating" color="black"><b>Mot de passe</b></ion-label>
+        <ion-input [(ngModel)]="sign.password" name="password" type="password" #password="ngModel" required>
+        </ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="password.invalid && password.touched">
+          Mot de passe obligatoire
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating" color="black"><b>Répeté mot de passe</b></ion-label>
+        <ion-input [(ngModel)]="sign.repeatpassword" name="repeatpassword" type="password" #repeatpassword="ngModel" required>
+        </ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="repeatpassword.invalid && repeatpassword.touched">
+          champ obligatoire obligatoire
+      </ion-text>
+
+    </ion-list>
+    
+    <ion-row>
+      <ion-col>
+        <ion-button color="primary" [disabled]="signForm.invalid" style="padding: 0px 18px" type="submit" expand="block">INSCRIPTION</ion-button>
+      </ion-col>
+    </ion-row>
+   
+  </form>
+</ion-content>
+

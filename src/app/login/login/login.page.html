@@ -13,7 +13,7 @@
   <form #loginForm="ngForm"  (ngSubmit)="onLogin(loginForm)" novalidate>
     <ion-list  style="padding: 0px 18px">
       <ion-item>
-        <ion-label position="floating" color="black"><b>Login</b></ion-label>
+        <ion-label position="floating" color="black"><b>Nom d'utilisateur</b></ion-label>
         <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" required>
         </ion-input>
       </ion-item>

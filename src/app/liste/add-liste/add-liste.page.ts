@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import * as XLSX from 'xlsx';
+import { ListeServiceService } from '../service/liste-service.service';
 type AOA = any[][];
 
 @Component({
@@ -12,6 +14,7 @@ export class AddListePage implements OnInit {
   liste = {nom: '', fichier: ''};
   error = '';
   apprenants:any[]=[];
+  listeApp: any;
   @ViewChild('inputFile') inputFile!: ElementRef;
   isExcelFile!:boolean;
   spinnerEnabled=false;
@@ -22,7 +25,10 @@ export class AddListePage implements OnInit {
   data:any;
   headData: any // excel row header
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private service: ListeServiceService
+  ) { }
 
   ngOnInit() {
   }
@@ -117,6 +123,29 @@ export class AddListePage implements OnInit {
   }
 
   addListe(form: NgForm){
+    let formats = localStorage.getItem('userData');
+    let format = JSON.parse(formats)
+    this.listeApp = {nom_liste: form.value["nom"], date_liste: new Date(), formateur: format};
+    this.service.addListe(this.listeApp).subscribe((app: any)=>{
+      console.log(app);
+      
+      if(app){
+         
+         for(let i=0; i<this.datas.length; i++){
+          this.apprenants.push({
+            nom_complet:this.datas[i].nom_complet,
+            numero:this.datas[i].numero,
+            email:this.datas[i].email,
+            liste: app,
+         });
+         console.log(this.apprenants);
+         
+        }
 
+        this.service.addListeExcel(this.apprenants).subscribe((data: any)=>{
+          this.router.navigate(['liste']);
+        })
+      }
+    })
   }
 }

@@ -11,4 +11,9 @@ export class LoginServiceService {
   constructor(
     private http: HttpClient,
   ) { }
+
+   // Connexion in with login/password
+   connexion(login, password) {
+    return this.http.get(this.url + `/loginAdmin/${login}/${password}`);
+  }
 }

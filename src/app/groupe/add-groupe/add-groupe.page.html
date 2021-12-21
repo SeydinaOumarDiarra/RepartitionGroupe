@@ -47,7 +47,19 @@
                   <ion-text color="danger" *ngIf="nbre.invalid && nbre.touched">
                       Nombre de membre obligatoire
                   </ion-text>
-                </ion-list>
+                
+                  <ion-item><br>
+                    <ion-label position="floating" color="black">Choisir l'ordre</ion-label>
+                    <ion-select [(ngModel)]="groupe.ordre"  name="ordre" type="text" #ordre="ngModel" required>
+                      <ion-option value="f">Aléatoire</ion-option>
+                      <ion-option value="m">Par ordre</ion-option>
+                    </ion-select>
+                </ion-item>
+
+                <ion-text color="danger" *ngIf="ordre.invalid && ordre.touched">
+                    Ordre obligatoire
+                </ion-text>
+              </ion-list>
 
                 <ion-row>
                   <ion-col><br>

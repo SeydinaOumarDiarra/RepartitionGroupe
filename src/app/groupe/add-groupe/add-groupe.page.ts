@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AlertController, LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-groupe',
@@ -7,9 +8,13 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add-groupe.page.scss'],
 })
 export class AddGroupePage implements OnInit {
-  groupe = {collection: '', nbre: '', membre:''};
+  groupe = {collection: '', nbre: '', membre:'', ordre:''};
   error = '';
-  constructor() { }
+  constructor(
+    
+    private loading: LoadingController,
+    public alertController: AlertController,
+  ) { }
 
   ngOnInit() {
   }
