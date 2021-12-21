@@ -13,7 +13,7 @@ public class FormateurController {
     @Autowired
     FormateurService formateurService;
 
-    @GetMapping("/loginAdmin/{login}&&{passd}")
+    @GetMapping("/loginAdmin/{login}/{passd}")
     public Formateur loginAdmin(@PathVariable String login, @PathVariable String passd){
 
         return formateurService.loginFormateur(login, passd);

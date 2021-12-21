@@ -31,4 +31,14 @@ public class ListeController {
         return listeService.listeById(id);
     }
 
+    @DeleteMapping("supprimerliste/{id}")
+    public void supprimerListe(@PathVariable Long id){
+        listeService.supprimerListe(id);
+    }
+
+    @GetMapping("/listeFormateur/{id}")
+    public List<Liste> listByFormateur(@PathVariable Long id){
+        return listeService.listeByFormateur(id);
+    }
+
 }

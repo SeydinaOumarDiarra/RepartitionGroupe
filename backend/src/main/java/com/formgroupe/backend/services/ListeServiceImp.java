@@ -25,4 +25,14 @@ public class ListeServiceImp implements ListeService{
     public Liste listeById(Long id) {
         return listeRepository.findById(id).get();
     }
+
+    @Override
+    public void supprimerListe(Long id) {
+        listeRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Liste> listeByFormateur(Long id) {
+        return listeRepository.getListeByFormateur(id);
+    }
 }

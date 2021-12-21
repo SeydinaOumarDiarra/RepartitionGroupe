@@ -15,4 +15,8 @@ public interface ListeService {
 
     public Liste listeById(Long id);
 
+    public void supprimerListe(Long id);
+
+    public List<Liste> listeByFormateur(Long id);
+
 }
