@@ -12,6 +12,8 @@ public interface FormateurService {
 
     public Formateur loginFormateur(String login, String passd);
 
+    public Formateur loginFormateurVerifier(String login);
+
     public Formateur ajoutFormateur(Formateur formateur);
 
     public List<Formateur> listeFormateur();

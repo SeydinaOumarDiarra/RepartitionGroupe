@@ -20,6 +20,11 @@ public class FormateurServiceImp implements FormateurService{
     }
 
     @Override
+    public Formateur loginFormateurVerifier(String login) {
+        return formateurRepository.getFormateurByLogin(login);
+    }
+
+    @Override
     public Formateur ajoutFormateur(Formateur formateur) {
         return formateurRepository.save(formateur);
     }

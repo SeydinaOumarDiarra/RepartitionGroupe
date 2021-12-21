@@ -33,7 +33,7 @@ public class FormateurController {
     }
 
     @GetMapping("/formateur/{id}")
-    public Formateur formateurById(Long id){
+    public Formateur formateurById(@PathVariable Long id){
         return formateurService.formateurById(id);
     }
 
@@ -42,9 +42,14 @@ public class FormateurController {
         formateurService.miseAjourFormateur(id, formateur);
     }
 
-    @DeleteMapping("/suppFormateur")
-    public void supprimerFormateur(Long id){
+    @DeleteMapping("/suppFormateur/{id}")
+    public void supprimerFormateur(@PathVariable Long id){
         formateurService.supprimerFormateur(id);
+    }
+
+    @GetMapping("/verifiLogin/{login}")
+    public Formateur verifiLogin(@PathVariable String login){
+        return formateurService.loginFormateurVerifier(login);
     }
 
 }
