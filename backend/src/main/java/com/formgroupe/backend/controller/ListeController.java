@@ -31,6 +31,11 @@ public class ListeController {
         return listeService.listeById(id);
     }
 
+    @PutMapping("/ajourListe/{id}")
+    public void ajourListe(@PathVariable Long id, @RequestBody Liste liste){
+        listeService.ajourListe(id, liste);
+    }
+
     @DeleteMapping("supprimerliste/{id}")
     public void supprimerListe(@PathVariable Long id){
         listeService.supprimerListe(id);

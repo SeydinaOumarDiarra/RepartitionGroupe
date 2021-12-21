@@ -4,6 +4,7 @@ import com.formgroupe.backend.model.Liste;
 import com.formgroupe.backend.repositories.ListeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -24,6 +25,13 @@ public class ListeServiceImp implements ListeService{
     @Override
     public Liste listeById(Long id) {
         return listeRepository.findById(id).get();
+    }
+
+    @Transactional
+    @Override
+    public void ajourListe(Long id, Liste liste) {
+        Liste list = new Liste();
+        list.setNom_liste(liste.getNom_liste());
     }
 
     @Override
