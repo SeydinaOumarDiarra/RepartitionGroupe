@@ -5,6 +5,7 @@ import com.formgroupe.backend.model.Liste;
 import com.formgroupe.backend.repositories.ApprenantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +58,15 @@ public class ApprenantServiceImp implements ApprenantService{
     @Override
     public List<Apprenant> listeApprenant() {
         return apprenantRepository.findAll();
+    }
+
+    @Transactional
+    @Override
+    public void ajourApprenant(Long id, Apprenant apprenant) {
+        Apprenant apprnt = new Apprenant();
+        apprnt.setNom_complet(apprenant.getNom_complet());
+        apprnt.setEmail(apprenant.getEmail());
+        apprnt.setNumero(apprenant.getNumero());
     }
 
     @Override

@@ -16,6 +16,8 @@ public interface ApprenantService {
 
     public List<Apprenant> listeApprenant();
 
+    public void ajourApprenant(Long id, Apprenant apprenant);
+
     public List<Apprenant> listeApprenantdistinct(Long id);
 
 }

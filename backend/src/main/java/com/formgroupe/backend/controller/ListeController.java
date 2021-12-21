@@ -16,7 +16,7 @@ public class ListeController {
     @Autowired
     ListeService listeService;
 
-    @PostMapping("ajoutListe")
+    @PostMapping("/ajoutListe")
     public Liste ajoutListe(@RequestBody Liste liste){
         return listeService.ajoutListe(liste);
     }
@@ -36,7 +36,7 @@ public class ListeController {
         listeService.ajourListe(id, liste);
     }
 
-    @DeleteMapping("supprimerliste/{id}")
+    @DeleteMapping("/supprimerliste/{id}")
     public void supprimerListe(@PathVariable Long id){
         listeService.supprimerListe(id);
     }
