@@ -28,11 +28,11 @@ const routes: Routes = [
     loadChildren: () => import('./liste/liste/liste.module').then( m => m.ListePageModule)
   },
   {
-    path: 'add-groupe',
+    path: 'add-groupe/:id',
     loadChildren: () => import('./groupe/add-groupe/add-groupe.module').then( m => m.AddGroupePageModule)
   },
   {
-    path: 'collection',
+    path: 'collection/:id',
     loadChildren: () => import('./groupe/collection/collection.module').then( m => m.CollectionPageModule)
   },
   {

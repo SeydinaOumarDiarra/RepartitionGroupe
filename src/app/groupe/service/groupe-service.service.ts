@@ -12,4 +12,18 @@ export class GroupeServiceService {
     private http: HttpClient,
   ) { }
   
+  // création de tache
+  ajoutTache(data: any){
+    return this.http.post(this.url +'/ajoutTache', data);
+  }
+
+  // création de groupe
+  ajoutGroupe(data: any){
+    return this.http.post(this.url +'/ajoutGroupe', data);
+  }
+
+  // création de groupe_apprenant
+  ajoutGroupeApp(data: any){
+    return this.http.post(this.url +'/ajoutGroupeApprenant', data);
+  }
 }

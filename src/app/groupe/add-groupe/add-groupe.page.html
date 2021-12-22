@@ -48,11 +48,11 @@
                       Nombre de membre obligatoire
                   </ion-text>
                 
-                  <ion-item><br>
+                  <ion-item>
                     <ion-label position="floating" color="black">Choisir l'ordre</ion-label>
-                    <ion-select [(ngModel)]="groupe.ordre"  name="ordre" type="text" #ordre="ngModel" required>
-                      <ion-option value="f">Aléatoire</ion-option>
-                      <ion-option value="m">Par ordre</ion-option>
+                    <ion-select [(ngModel)]="groupe.ordre"  name="ordre" #ordre="ngModel" required>
+                      <ion-select-option [value]="f">Aléatoire</ion-select-option>
+                      <ion-select-option [value]="m">Par ordre</ion-select-option>
                     </ion-select>
                 </ion-item>
 
@@ -60,7 +60,7 @@
                     Ordre obligatoire
                 </ion-text>
               </ion-list>
-
+              
                 <ion-row>
                   <ion-col><br>
                     <ion-button color="primary" [disabled]="groupeForm.invalid" style="padding: 0px 18px" type="submit" expand="block">Créer</ion-button>
