@@ -41,6 +41,11 @@ public class ApprenantController {
         return apprenantService.listeApprenantdistinct(id);
     }
 
+    @DeleteMapping("/suppApprenant/{id}")
+    public void supprimerApprenant(@PathVariable Long id){
+        apprenantService.supprimerApprenant(id);
+    }
+
 
 
 

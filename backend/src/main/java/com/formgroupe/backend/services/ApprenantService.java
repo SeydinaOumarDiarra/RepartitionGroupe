@@ -20,4 +20,6 @@ public interface ApprenantService {
 
     public List<Apprenant> listeApprenantdistinct(Long id);
 
+    public void supprimerApprenant(Long id);
+
 }

@@ -74,4 +74,9 @@ public class ApprenantServiceImp implements ApprenantService{
     public List<Apprenant> listeApprenantdistinct(Long id) {
         return apprenantRepository.getApprenantByList(id);
     }
+
+    @Override
+    public void supprimerApprenant(Long id) {
+        apprenantRepository.deleteById(id);
+    }
 }
