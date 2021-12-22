@@ -16,7 +16,7 @@ public class TacheController {
     TacheService tacheService;
 
     @PostMapping("/ajoutTache")
-    public Tache ajoutTAche(Tache tache){
+    public Tache ajoutTAche(@RequestBody Tache tache){
         return tacheService.ajoutTache(tache);
     }
 

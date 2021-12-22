@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -26,6 +27,6 @@ public class Groupe {
     @ManyToOne
     @JoinColumn(name = "formateur_id")
     private Formateur formateur;
-    @OneToMany(mappedBy = "groupe", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "groupe", cascade = CascadeType.ALL)
     private List<Groupe_apprenant> groupe_apprenants;
 }

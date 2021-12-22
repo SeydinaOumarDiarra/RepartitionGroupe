@@ -25,10 +25,9 @@ public class Apprenant {
     private String nom_complet;
     private String email;
     private Integer numero;
-    @OneToMany(mappedBy = "apprenant", cascade = CascadeType.REMOVE)
-    private Set<Groupe_apprenant> groupe_apprenant;
+    @OneToMany(mappedBy = "apprenant", cascade = CascadeType.ALL)
+    private List<Groupe_apprenant> groupe_apprenants;
     @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "liste_id")
     private Liste liste;
 
