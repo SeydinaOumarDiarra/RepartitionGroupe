@@ -24,7 +24,5 @@ public class Groupe_apprenant {
     @ManyToOne
     private Apprenant apprenant;
     @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "groupe_id")
     private Groupe groupe;
 }

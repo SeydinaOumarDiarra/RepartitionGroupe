@@ -10,6 +10,7 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -24,8 +25,8 @@ public class Apprenant {
     private String nom_complet;
     private String email;
     private Integer numero;
-    @OneToMany(mappedBy = "id", cascade = CascadeType.REMOVE)
-    private List<Groupe_apprenant> groupe_apprenantList;
+    @OneToMany(mappedBy = "apprenant", cascade = CascadeType.REMOVE)
+    private Set<Groupe_apprenant> groupe_apprenant;
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "liste_id")
