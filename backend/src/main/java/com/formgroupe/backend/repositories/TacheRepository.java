@@ -11,7 +11,7 @@ import java.util.List;
 public interface TacheRepository extends JpaRepository<Tache, Long> {
 
     //recuperer les taches par liste
-    @Query(value = "SELECT tch FROM Tache tch.liste.id = :id")
-    List<Tache> getTacheByListe(Long id);
+    @Query(value = "SELECT tch FROM Tache tch WHERE tch.liste.id = :id")
+    List<Tache> getTacheByList(Long id);
 
 }

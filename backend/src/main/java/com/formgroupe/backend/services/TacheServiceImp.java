@@ -38,6 +38,6 @@ public class TacheServiceImp implements TacheService{
 
     @Override
     public List<Tache> afficherTacheParListe(Long id) {
-        return tacheRepository.getTacheByListe(id);
+        return tacheRepository.getTacheByList(id);
     }
 }
