@@ -7,7 +7,6 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Data
@@ -22,7 +21,6 @@ public class Tache {
     private String description;
     private LocalDate date_ajout = LocalDate.now();
     @ManyToOne
+    @JoinColumn(name = "liste_id")
     private Liste liste;
-    @OneToMany(mappedBy = "tache", cascade = CascadeType.ALL)
-    private List<Groupe> groupes;
 }

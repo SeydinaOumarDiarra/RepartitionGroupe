@@ -23,10 +23,6 @@ public class Formateur {
     private String prenom;
     private String login;
     private String password;
-    @OneToMany(mappedBy = "formateur", cascade = CascadeType.ALL)
-    private List<Groupe> groupes;
-    @OneToMany(mappedBy = "formateur", cascade = CascadeType.ALL)
-    private List<Liste> listes;
 
 
 }

@@ -22,7 +22,9 @@ public class Groupe_apprenant {
     private Long id;
     private LocalDate date_creation = LocalDate.now();
     @ManyToOne
+    @JoinColumn(name = "apprenant_id")
     private Apprenant apprenant;
     @ManyToOne
+    @JoinColumn(name = "groupe_id")
     private Groupe groupe;
 }

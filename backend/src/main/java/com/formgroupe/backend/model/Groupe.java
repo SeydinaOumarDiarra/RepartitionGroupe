@@ -22,9 +22,9 @@ public class Groupe {
     private Long id;
     private String nom_groupe;
     @ManyToOne
+    @JoinColumn(name = "tache_id")
     private Tache tache;
     @ManyToOne
+    @JoinColumn(name = "formateur_id")
     private Formateur formateur;
-    @OneToMany(mappedBy = "groupe", cascade = CascadeType.ALL)
-    private List<Groupe_apprenant> groupe_apprenants;
 }

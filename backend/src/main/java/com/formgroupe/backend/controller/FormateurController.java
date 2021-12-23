@@ -12,6 +12,7 @@ import java.util.List;
 @CrossOrigin("*")
 public class FormateurController {
 
+    //
     @Autowired
     FormateurService formateurService;
 
