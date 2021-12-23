@@ -30,5 +30,10 @@ public class TacheController {
         tacheService.modifierTache(id, tache);
     }
 
+    @GetMapping("/tacheParListe/{id}")
+    public List<Tache> afficherTacheParListe(@PathVariable Long id){
+        return tacheService.afficherTacheParListe(id);
+    }
+
 
 }

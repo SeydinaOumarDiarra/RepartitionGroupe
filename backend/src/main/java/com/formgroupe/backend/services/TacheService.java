@@ -16,6 +16,8 @@ public interface TacheService {
 
     public void supprimerTache(Long id);
 
+    public List<Tache> afficherTacheParListe(Long id);
+
 
 
 }
