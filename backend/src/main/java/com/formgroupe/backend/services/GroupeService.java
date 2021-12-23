@@ -11,4 +11,5 @@ public interface GroupeService {
     public Groupe ajoutGroupe(Groupe groupe);
     public List<Groupe> listgroupe();
     public void suppGroup(Long id);
+    public List<Groupe> afficherGroupeParTache(Long id);
 }
