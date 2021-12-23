@@ -12,7 +12,9 @@ public interface GroupeApprenantService {
 
     public List<Groupe_apprenant> listGroupeApprenant();
 
-    public List<Groupe_apprenant> histoGroupe(Long id);
+    public List<Groupe_apprenant> histoGroupeApprenant(Long id);
+
+    public List<Groupe_apprenant> histoGroupeGroupe(Long id);
 
 
 

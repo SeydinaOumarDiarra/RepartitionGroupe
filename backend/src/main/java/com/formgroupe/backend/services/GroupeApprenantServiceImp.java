@@ -25,7 +25,12 @@ public class GroupeApprenantServiceImp implements GroupeApprenantService{
     }
 
     @Override
-    public List<Groupe_apprenant> histoGroupe(Long id) {
+    public List<Groupe_apprenant> histoGroupeApprenant(Long id) {
         return groupe_apprenantRepository.getGroupeApprenantByList(id);
+    }
+
+    @Override
+    public List<Groupe_apprenant> histoGroupeGroupe(Long id) {
+        return groupe_apprenantRepository.getGroupeApprenantByGroupe(id);
     }
 }

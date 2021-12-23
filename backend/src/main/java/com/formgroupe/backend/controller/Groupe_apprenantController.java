@@ -26,7 +26,12 @@ public class Groupe_apprenantController {
 
     @GetMapping("/histoApprenant/{id}")
     public List<Groupe_apprenant> historiqueApprenant(Long id){
-        return groupeApprenantService.histoGroupe(id);
+        return groupeApprenantService.histoGroupeApprenant(id);
+    }
+
+    @GetMapping("/histoGroupe/{id}")
+    public List<Groupe_apprenant> historiqueGroupe(@PathVariable Long id){
+        return groupeApprenantService.histoGroupeGroupe(id);
     }
 
 }
