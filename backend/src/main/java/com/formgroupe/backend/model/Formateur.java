@@ -5,10 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -25,6 +23,10 @@ public class Formateur {
     private String prenom;
     private String login;
     private String password;
+    @OneToMany(mappedBy = "formateur", cascade = CascadeType.ALL)
+    private List<Groupe> groupes;
+    @OneToMany(mappedBy = "formateur", cascade = CascadeType.ALL)
+    private List<Liste> listes;
 
 
 }

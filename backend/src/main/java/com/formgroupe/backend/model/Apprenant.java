@@ -28,7 +28,6 @@ public class Apprenant {
     @OneToMany(mappedBy = "apprenant", cascade = CascadeType.ALL)
     private List<Groupe_apprenant> groupe_apprenants;
     @ManyToOne
-    @JoinColumn(name = "liste_id")
     private Liste liste;
 
 }

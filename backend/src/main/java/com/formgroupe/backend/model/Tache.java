@@ -5,11 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -23,4 +21,8 @@ public class Tache {
     private Long id;
     private String description;
     private LocalDate date_ajout = LocalDate.now();
+    @ManyToOne
+    private Liste liste;
+    @OneToMany(mappedBy = "tache", cascade = CascadeType.ALL)
+    private List<Groupe> groupes;
 }

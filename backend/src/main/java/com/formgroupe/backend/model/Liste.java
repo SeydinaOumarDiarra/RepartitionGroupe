@@ -8,6 +8,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -22,6 +23,9 @@ public class Liste {
     private String nom_liste;
     private LocalDate date_liste = LocalDate.now();
     @ManyToOne
-    @JoinColumn(name = "formateur_id")
     private Formateur formateur;
+    @OneToMany(mappedBy = "liste", cascade = CascadeType.ALL)
+    private List<Tache> taches;
+    @OneToMany(mappedBy = "liste", cascade = CascadeType.ALL)
+    private List<Apprenant> apprenants;
 }
