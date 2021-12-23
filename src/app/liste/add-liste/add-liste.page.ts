@@ -25,12 +25,16 @@ export class AddListePage implements OnInit {
   data:any;
   headData: any // excel row header
 
+  user: any;
+  formateur: any;
   constructor(
     private router: Router,
     private service: ListeServiceService
   ) { }
 
   ngOnInit() {
+    this.user = localStorage.getItem('userData');
+    this.formateur = JSON.parse(this.user);
   }
 
   /* <input type="file" (change)="onFileChange($event)" multiple="false" /> */
@@ -143,7 +147,9 @@ export class AddListePage implements OnInit {
         }
 
         this.service.addListeExcel(this.apprenants).subscribe((data: any)=>{
-          this.router.navigate(['liste']);
+          //window.location.reload();
+          this.router.navigateByUrl('accueil', {skipLocationChange: true}).then(()=>
+          this.router.navigate(['accueil'])); 
         })
       }
     })

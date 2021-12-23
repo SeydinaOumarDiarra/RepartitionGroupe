@@ -26,4 +26,19 @@ export class GroupeServiceService {
   ajoutGroupeApp(data: any){
     return this.http.post(this.url +'/ajoutGroupeApprenant', data);
   }
+
+  // liste des taches par liste 
+  afficherTacheParListe(id: any){
+    return this.http.get(this.url +`/tacheParListe/${id}`);
+  }
+
+  // liste des groupes par tache 
+  afficherGroupeParTache(id: any){
+    return this.http.get(this.url +`/groupeParTache/${id}`);
+  }
+
+  // historique groupe
+  historiqueGroupe(id: any){
+    return this.http.get(this.url +`/histoGroupe/${id}`);
+  }
 }

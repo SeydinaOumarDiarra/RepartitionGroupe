@@ -16,13 +16,14 @@ export class AddGroupePage implements OnInit {
   id: any;
   tab: any;
   liste: any;
+  detailList: any;
   collection: any;
   groupeAdd: any;
   groupeApp: any;
   formats: any;
-  group: any = [];
+  groupa: any;
   format: any;
-  resteApp: any = [];
+  resteApp = [];
   cpte = 0;
   multi = 0;
   constructor(  
@@ -42,6 +43,12 @@ export class AddGroupePage implements OnInit {
       }
       this.liste = data;
     });
+
+    this.serviceList.detailListe(this.id).subscribe((dat: any)=>{
+      this.detailList = dat;
+      console.log(dat);
+      
+    })
 
     this.formats = localStorage.getItem('userData');
      this.format = JSON.parse(this.formats)
@@ -132,7 +139,7 @@ export class AddGroupePage implements OnInit {
             console.log("collection______", form.value["collection"]);
             
     
-            this.collection = {date_ajout: new Date(), description: form.value["collection"]}
+            this.collection = {date_ajout: new Date(), description: form.value["collection"], liste: this.detailList}
             // créer la collection
               this.service.ajoutTache(this.collection).subscribe((collect: any)=>{
 
@@ -142,7 +149,7 @@ export class AddGroupePage implements OnInit {
                   this.resteApp = [];
                   this.groupeAdd = {nom_groupe: "Groupe "+(i+1), formateur: this.format, tache: collect}
                   this.service.ajoutGroupe(this.groupeAdd).subscribe((group: any)=>{
-                    this.group.push(group);
+                    this.groupa = group;
                    
 
                     for(let j=0; j<form.value["membre"]; j++){
@@ -177,19 +184,19 @@ export class AddGroupePage implements OnInit {
                 
                 }
 
-                console.log(this.liste);
+                console.log(this.resteApp);
                  console.log(this.liste[0]);
-                console.log(this.group);
+                console.log(this.groupa);
 
                 if(this.resteApp.length != 0){
                   console.log("reste");
                   
                   for (let j=0; j<this.resteApp.length; j++){
                      //choisir aléatoirement une valeur dans la liste des groupes créés
-                      var rand = Math.floor(Math.random()*(this.group).length);
+                      var rand = Math.floor(Math.random()*(this.groupa).length);
 
                     //stocker l'index de la valeur trouvée
-                     var rValue = this.group[rand];
+                     var rValue = this.groupa[rand];
 
                     // création de groupe_apprenant
                      var groupeApp = {apprenant: this.resteApp[j], groupe: rValue};
@@ -223,6 +230,89 @@ export class AddGroupePage implements OnInit {
             if(form.value["ordre"] == "Par ordre"){
               load.dismiss();
               console.log("Par ordre");
+              this.collection = {date_ajout: new Date(), description: form.value["collection"], liste: this.detailList}
+              // créer la collection
+              this.service.ajoutTache(this.collection).subscribe((collect: any)=>{
+
+                
+                // créer le nombre de groupe demandé
+                for(let i=0; i< form.value["nbre"]; i++){
+                  this.resteApp = [];
+                  this.groupeAdd = {nom_groupe: "Groupe "+(i+1), formateur: this.format, tache: collect}
+                  this.service.ajoutGroupe(this.groupeAdd).subscribe((group: any)=>{
+                    this.groupa = group;
+                   
+
+                    for(let j=0; j<form.value["membre"]; j++){
+                      
+                      
+ 
+                      //stocker l'index de la valeur trouvée
+                      var rValue = this.liste[j];
+ 
+                     // création de groupe_apprenant
+                     this.groupeApp = {apprenant: rValue, groupe: group};
+                     console.log("groupe apprenant===== ",this.groupeApp);
+
+                     this.service.ajoutGroupeApp(this.groupeApp).subscribe((ag: any)=>{
+                      console.log("fait");});
+
+                      //supprimer la valeur trouvée de la liste
+                      if (j !== -1) {
+                        this.liste.splice(j, 1);
+                      }
+                      console.log(this.liste);
+                       //this.resteApp = this.liste;
+                     if(j == form.value["membre"]-1){
+                       this.resteApp.push(this.liste);
+                      }
+                      
+                   }
+                   
+                 })
+                 console.log(this.liste);
+                
+                }
+
+                console.log(this.resteApp);
+                 console.log(this.liste[0]);
+                console.log(this.groupa);
+
+                if(this.resteApp.length != 0){
+                  console.log("reste");
+                  
+                  for (let j=0; j<this.resteApp.length; j++){
+                     //choisir aléatoirement une valeur dans la liste des groupes créés
+                      var rand = Math.floor(Math.random()*(this.groupa).length);
+
+                    //stocker l'index de la valeur trouvée
+                     var rValue = this.groupa[rand];
+
+                    // création de groupe_apprenant
+                     var groupeApp = {apprenant: this.resteApp[j], groupe: rValue};
+
+                     this.service.ajoutGroupeApp(groupeApp).subscribe((agi: any)=>{
+
+                      //supprimer la valeur trouvée de la liste
+                      if (rand !== -1) {
+                        this.resteApp.splice(rand, 1);
+                      }
+                     })
+                     
+                  }
+                }
+
+               // console.log(this.tab);
+                
+                //this.tab = this.liste;
+
+                
+                
+
+                // if(this.tab.length != 0){
+                  
+                // }
+              })
             }
           }
           

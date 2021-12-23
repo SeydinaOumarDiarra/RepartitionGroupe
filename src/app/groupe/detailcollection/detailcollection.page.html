@@ -20,10 +20,10 @@
   </ion-row>
   <div class="row position">
     <div class="flex">
-      <ion-row>
+      <ion-row *ngFor="let groupe of groupe">
         <ion-col size="large" size="12">
           <ion-card>
-            <p>Groupe 1</p>
+            <p>{{groupe.groupe.nom_groupe}}</p>
             <ion-list>
               <ion-item>
                 <ion-label>NOM</ion-label>
@@ -42,27 +42,7 @@
         </ion-col>
       </ion-row>
 
-      <ion-row>
-        <ion-col size="large" size="12">
-          <ion-card>
-            <p>Groupe 2</p>
-            <ion-list>
-              <ion-item>
-                <ion-label>NOM</ion-label>
-                <ion-label>EMAIL</ion-label>
-                <ion-label>Tél</ion-label>
-              </ion-item>
-            </ion-list>
-              <ion-list >
-                <ion-item lines="none">
-                  <ion-label>Nooo</ion-label>
-                  <ion-label>pppp</ion-label>
-                  <ion-label>78999</ion-label>
-                </ion-item>
-              </ion-list>
-            </ion-card>
-        </ion-col>
-      </ion-row>
+     
        
     </div>
   </div>

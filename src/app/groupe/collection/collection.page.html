@@ -16,34 +16,20 @@
 
     <div class="flex">
       <ion-row>
-        <ion-col size="large" size="6">
+        <ion-col size="large" size="6" *ngFor="let tache of tache">
           <ion-card class="ion-text-center">
             <br>
               <ion-grid>
                 <div>
-                  <a (click)="detailCollection()">
-                  <ion-img src=""></ion-img>
-                  <ion-card-subtitle style="color: black;">Collection 1</ion-card-subtitle>
+                  <a (click)="detailCollection(tache.id)">
+                  <ion-img src="../../../assets/images/book.png"></ion-img>
+                  <ion-card-subtitle style="color: black;">{{tache.description}}</ion-card-subtitle>
                 </a>
                 </div>
             </ion-grid>
           </ion-card>
         </ion-col>
-        <ion-col size="large" size="6">
-          <ion-card class="ion-text-center">
-            <br>
-            <a (click)="detailCollection()">
-              <ion-grid>
-                <div>
-                  
-                  <ion-img src=""></ion-img>
-                  <ion-card-subtitle style="color: black;">Coolection 2</ion-card-subtitle>
-               
-                </div>
-            </ion-grid>
-          </a>
-          </ion-card>
-        </ion-col>
+        
       </ion-row>
        
     </div>

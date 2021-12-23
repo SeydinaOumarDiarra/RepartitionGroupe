@@ -23,6 +23,10 @@ export class ListeServiceService {
   }
 
   //Apprenant par liste
+  detailListe(id: any){
+    return this.http.get(this.url +`/liste/${id}`);
+  }
+  //Apprenant par liste
   appByListe(data: any){
     return this.http.get(this.url +`/listeApprenantdistinct/${data}`);
   }

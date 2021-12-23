@@ -36,7 +36,7 @@ const routes: Routes = [
     loadChildren: () => import('./groupe/collection/collection.module').then( m => m.CollectionPageModule)
   },
   {
-    path: 'detailcollection',
+    path: 'detailcollection/:id',
     loadChildren: () => import('./groupe/detailcollection/detailcollection.module').then( m => m.DetailcollectionPageModule)
   },
   {
