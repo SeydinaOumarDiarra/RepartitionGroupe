@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface ListeRepository extends JpaRepository<Liste, Long> {
 
-    //liste des liste par formateur
+    //liste des listes par formateur
     @Query(value = "SELECT lst FROM Liste lst WHERE lst.formateur.id = :id")
     List<Liste> getListeByFormateur(Long id);
 

@@ -5,6 +5,8 @@ import com.formgroupe.backend.repositories.GroupeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GroupeServiceImp implements GroupeService{
 
@@ -14,5 +16,15 @@ public class GroupeServiceImp implements GroupeService{
     @Override
     public Groupe ajoutGroupe(Groupe groupe) {
         return groupeRepository.save(groupe);
+    }
+
+    @Override
+    public List<Groupe> listgroupe() {
+        return groupeRepository.findAll();
+    }
+
+    @Override
+    public void suppGroup(Long id) {
+        groupeRepository.deleteById(id);
     }
 }
