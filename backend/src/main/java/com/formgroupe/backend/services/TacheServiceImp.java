@@ -35,4 +35,9 @@ public class TacheServiceImp implements TacheService{
     public void supprimerTache(Long id) {
         tacheRepository.deleteById(id);
     }
+
+    @Override
+    public List<Tache> afficherTacheParListe(Long id) {
+        return tacheRepository.getTacheByList(id);
+    }
 }

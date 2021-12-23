@@ -25,4 +25,12 @@ public class GroupeController {
     }
     @DeleteMapping("/suppGroupe/{id}")
     public void suppGroupe(@PathVariable Long id) {groupeService.suppGroup(id);}
+<<<<<<< HEAD
+=======
+
+    @GetMapping("/groupeParTache/{id}")
+    public List<Groupe> afficherGroupeParTache(@PathVariable Long id){
+        return groupeService.afficherGroupeParTache(id);
+    }
+>>>>>>> be7c14c760b92bd14443d85abc2e82055efb62d0
 }

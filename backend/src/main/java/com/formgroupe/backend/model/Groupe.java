@@ -27,6 +27,4 @@ public class Groupe {
     @ManyToOne
     @JoinColumn(name = "formateur_id")
     private Formateur formateur;
-    @OneToMany(mappedBy = "groupe", cascade = CascadeType.ALL)
-    private List<Groupe_apprenant> groupe_apprenants;
 }

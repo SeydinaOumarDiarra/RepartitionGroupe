@@ -21,8 +21,10 @@ public class Groupe_apprenant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDate date_creation = LocalDate.now();
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
+    @JoinColumn(name = "apprenant_id")
     private Apprenant apprenant;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
+    @JoinColumn(name = "groupe_id")
     private Groupe groupe;
 }

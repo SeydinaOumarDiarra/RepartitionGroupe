@@ -27,4 +27,12 @@ public class GroupeServiceImp implements GroupeService{
     public void suppGroup(Long id) {
         groupeRepository.deleteById(id);
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    public List<Groupe> afficherGroupeParTache(Long id) {
+        return groupeRepository.getGroupeByTaches(id);
+    }
+>>>>>>> be7c14c760b92bd14443d85abc2e82055efb62d0
 }
