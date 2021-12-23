@@ -1,0 +1,98 @@
+Pseudo code
+			DEBUT
+HOME PAGE
+la fonction qui vous rediriger vers la page de connexion
+
+la fonction qui vous redirige vers la page d'insciption
+
+PAGE DE CONNEXION
+
+créer la variable pour stocker les informations saisies par l'utilisateur
+créer la variable stocke l'erreur
+
+créer la fonction d'alert d'erreur
+
+la fonction qui envoie les informations de connexion
+ créer loading de patience
+ 
+ envoyer les information de de connexion
+ retourner les données dans une variable reponse
+ 
+	if(si la reponse n'est pas vide)
+			stocker les informations dans local storage
+			rediriger vers la page d'acceuil
+	sinon
+		declancher la fonction d'erreur
+ 
+ 
+ 
+
+PAGE D'ACCEUIL
+
+créer une variable utilisateur
+créer une valiable formateur
+créer une liste
+
+stocker les informations de utilisateur 
+transformer les informations de l'utilisateur en format JSON
+recuperer la liste des apprenant en fonction de l'utilisateur connecté
+stocker la liste des apprenants dans la variable liste
+
+
+afficher liste dans une autre page 
+
+effacher les informations de l'utilisateur connecté
+nettoyer local storage
+rediriger vers la page de connexion
+
+PAGE LISTE
+ 
+créer une variable liste
+
+importer un fichier excel qui contient le nom complet l'email et le numéro des apprenants
+	if(si les informations du fichier sont correcte)
+			stocker la liste contenat les informations
+	sinon
+		afficher le message d'erreur
+		
+PAGE GROUPE
+créer une valiable collection
+créer une valiable groupe
+
+verifier 
+	Si (les nombre des groupes à créer est > ou < aux membres de la liste) 
+
+	(afficher erreur le groupe superieur aux membres)
+
+
+verifier 
+	si (verifier si le nbre de groupe est > ou = au nbre de membre choisi
+        et que leurs multiplication est > au nombre de membres de la liste)
+		stocker le reste des membres et reparcourir le goupe pour stocker le reste
+verifier 
+	si (les membres de la liste est = au nombre du goupe)
+	 
+	 alors (partager et stocker le groupe avec succès)
+	 
+	 sinon (afficher erreur)
+
+choisir la méthode du partage de groupes
+
+	si (la méthode aléatoire est choisit)
+		alores indexé la valeur trouvé et la valeur aléatoirement
+		
+	si (la méthode ordre est choisit)
+		alors indexé la valeur trouvé et la valeur par ordre
+		
+suppression des valeurs trouver
+
+	si (un membre est effecté à un groupe)
+	 alors supprimer la valeur de la liste
+	 
+
+ 
+
+
+
+
+						FIN
